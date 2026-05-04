@@ -25,13 +25,11 @@ def leer_home():
     data = rows[1:]
 
     for row in data:
-        # saltar filas vacías
         if not any(row):
             continue
 
         fila = dict(zip(headers, row))
 
-        # devolver SOLO la fila activa
         if fila.get("NEW SESSION", "").strip().upper() == "TRUE":
             return fila
 
@@ -89,6 +87,9 @@ def generar_sesiones():
 
     lista_html = ""
 
+    BASE_URL = "/cinemafia-web"  # GitHub Pages
+    # BASE_URL = ""  # <-- usar esto si pruebas en local
+
     for fila in filas:
         if fila.get("ACTIVA", "").strip().upper() != "TRUE":
             continue
@@ -96,7 +97,7 @@ def generar_sesiones():
         sesion = fila.get("SESION", "").strip()
         sede = fila.get("SEDE", "").strip()
         fecha = fila.get("FECHA", "").strip()
-        carpeta = fila.get("CARPETA_FOTOS", "").strip()
+        carpeta = fila.get("CARPETA_FOTOS", "").strip().lower()
         rating = fila.get("RATING", "").strip()
 
         if not sesion:
@@ -107,10 +108,12 @@ def generar_sesiones():
 
         if ruta_assets.exists():
             for archivo in sorted(os.listdir(ruta_assets)):
-                ruta = f"../assets/{carpeta}/{archivo}"
+
+                ruta = f"{BASE_URL}/assets/{carpeta}/{archivo}"
 
                 if archivo.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
                     media_html += f'<img src="{ruta}">\n'
+
                 elif archivo.lower().endswith((".mp4", ".mov")):
                     media_html += f'<video controls src="{ruta}"></video>\n'
 
@@ -123,10 +126,8 @@ def generar_sesiones():
         salida = SALIDA_SESIONES / f"{sesion}.html"
         salida.write_text(html, encoding="utf-8")
 
-        # 👇 ESTO VA DENTRO DEL FOR (arreglado)
         lista_html += f'<a class="item" href="sesiones/{sesion}.html">📷 Cinemafia {sesion} · {fecha} · {sede} · ⭐ {rating}</a>\n'
 
-    # 👇 ESTO VA FUERA DEL FOR
     html_hist = PLANTILLA_HIST.read_text(encoding="utf-8")
     html_hist = html_hist.replace("{{LISTA}}", lista_html)
 
