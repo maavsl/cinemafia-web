@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinemafia</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+.info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255,120,40,0.8);
+}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: white;
+    }
+
+    /* HERO SOLO IMAGEN */
+.hero {
+  min-height: 78vh;
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
+    url("assets/fondo.jpg");
+  background-size: cover;
+  background-position: center -2%;
+}
+
+    /* INFO DEBAJO */
+    .info {
+      background: #050505;
+      padding: 30px 20px 40px;
+      text-align: center;
+    }
+
+    .info h2 {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .info p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: #ccc;
+    }
+
+    /* BOTONES */
+    .btn {
+      display: block;
+      width: min(92%, 420px);
+      margin: 12px auto;
+      padding: 17px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 900;
+      color: #111;
+      background: #f4f4f4;
+      box-shadow: 0 8px 18px rgba(0,0,0,.35);
+    }
+
+    .btn.maps {
+      background: #ffd447;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- IMAGEN -->
+  <section class="hero"></section>
+
+  <!-- INFO -->
+ <section class="info">
+  <h1>CINEMAFIA VII</h1>
+  <h2>AGER'S</h2>
+  <p>28/05 · 20:00</p>
+
+<a class="btn maps" href="https://maps.app.goo.gl/c1AmaFbHZVjgU1727" target="_blank">
+      📍 CÓMO LLEGAR
+    </a>
+
+    <a class="btn" href="que-es.html">🎬 ¿QUÉ ES?</a>
+    <a class="btn" href="como-funciona.html">⚙️ ¿CÓMO FUNCIONA?</a>
+    <a class="btn" href="sesiones-anteriores.html">📚 EDICIONES ANTERIORES</a>
+  </section>
+
+</body>
+</html>
