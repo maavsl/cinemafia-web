@@ -23,10 +23,17 @@
       padding: 20px;
     }
 
-    .item {
+    .fila-historico {
+      display: grid;
+      grid-template-columns: 420px 300px;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
       margin: 10px auto;
+    }
+
+    .item {
       padding: 15px;
-      max-width: 420px;
       background: #111;
       border-radius: 10px;
       text-decoration: none;
@@ -37,6 +44,28 @@
 
     .item:hover {
       background: #222;
+    }
+
+    .comentario-historico {
+      padding: 14px 18px;
+      background: #111;
+      border: 1px solid rgba(255,212,71,.35);
+      border-radius: 12px;
+      color: #ffd447;
+      font-weight: bold;
+      text-align: left;
+      min-height: 20px;
+    }
+
+    @media (max-width: 800px) {
+      .fila-historico {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+
+      .comentario-historico {
+        text-align: center;
+      }
     }
   </style>
 </head>

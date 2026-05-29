@@ -136,7 +136,12 @@ def generar_sesiones():
         salida = SALIDA_SESIONES / f"{sesion}.html"
         salida.write_text(html, encoding="utf-8")
 
-        lista_html += f'<a class="item" href="sesiones/{sesion}.html">📷 Cinemafia {sesion} · {fecha} · {sede} · ⭐ {rating}</a>\n'
+        lista_html += f'''
+<div class="fila-historico">
+  <a class="item" href="sesiones/{sesion}.html">📷 Cinemafia {sesion} · {fecha} · {sede} · ⭐ {rating}</a>
+  <div class="comentario-historico">{incidencias}</div>
+</div>
+'''
 
     html_hist = PLANTILLA_HIST.read_text(encoding="utf-8")
     html_hist = html_hist.replace("{{LISTA}}", lista_html)

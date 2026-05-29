@@ -23,10 +23,17 @@
       padding: 20px;
     }
 
-    .item {
+    .fila-historico {
+      display: grid;
+      grid-template-columns: 420px 300px;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
       margin: 10px auto;
+    }
+
+    .item {
       padding: 15px;
-      max-width: 420px;
       background: #111;
       border-radius: 10px;
       text-decoration: none;
@@ -38,6 +45,28 @@
     .item:hover {
       background: #222;
     }
+
+    .comentario-historico {
+      padding: 14px 18px;
+      background: #111;
+      border: 1px solid rgba(255,212,71,.35);
+      border-radius: 12px;
+      color: #ffd447;
+      font-weight: bold;
+      text-align: left;
+      min-height: 20px;
+    }
+
+    @media (max-width: 800px) {
+      .fila-historico {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+
+      .comentario-historico {
+        text-align: center;
+      }
+    }
   </style>
 </head>
 
@@ -46,13 +75,41 @@
   <h1>HISTÓRICO CINEMAFIA</h1>
 
   <div class="lista">
-    <a class="item" href="sesiones/I.html">📷 Cinemafia I · 13/11 · AGER'S · ⭐ 2,5/5</a>
-<a class="item" href="sesiones/II.html">📷 Cinemafia II · 21/12 · GUILLE'S · ⭐ 3,5/5</a>
-<a class="item" href="sesiones/III.html">📷 Cinemafia III · 30/01 · ALVARITO'S · ⭐ 3,7/5</a>
-<a class="item" href="sesiones/IV.html">📷 Cinemafia IV · 27/02 · JERI'S · ⭐ 3,5/5</a>
-<a class="item" href="sesiones/V.html">📷 Cinemafia V · 26/03 · ELI'S · ⭐ 4/5</a>
-<a class="item" href="sesiones/VI.html">📷 Cinemafia VI · 24/04 · ALVARITO'S · ⭐ 4/5</a>
-<a class="item" href="sesiones/VII.html">📷 Cinemafia VII · 28/05 · AGER'S · ⭐ 3,8/5</a>
+    
+<div class="fila-historico">
+  <a class="item" href="sesiones/I.html">📷 Cinemafia I · 13/11 · AGER'S · ⭐ 2,5/5</a>
+  <div class="comentario-historico">FLATULENCIAS LEVES</div>
+</div>
+
+<div class="fila-historico">
+  <a class="item" href="sesiones/II.html">📷 Cinemafia II · 21/12 · GUILLE'S · ⭐ 3,5/5</a>
+  <div class="comentario-historico">NADA RELEVANTE</div>
+</div>
+
+<div class="fila-historico">
+  <a class="item" href="sesiones/III.html">📷 Cinemafia III · 30/01 · ALVARITO'S · ⭐ 3,7/5</a>
+  <div class="comentario-historico">SE CANTO EL HIMNO</div>
+</div>
+
+<div class="fila-historico">
+  <a class="item" href="sesiones/IV.html">📷 Cinemafia IV · 27/02 · JERI'S · ⭐ 3,5/5</a>
+  <div class="comentario-historico">CUMPLE JERI</div>
+</div>
+
+<div class="fila-historico">
+  <a class="item" href="sesiones/V.html">📷 Cinemafia V · 26/03 · ELI'S · ⭐ 4/5</a>
+  <div class="comentario-historico">PRIMER DOBLETE</div>
+</div>
+
+<div class="fila-historico">
+  <a class="item" href="sesiones/VI.html">📷 Cinemafia VI · 24/04 · ALVARITO'S · ⭐ 4/5</a>
+  <div class="comentario-historico">TENEMOS CAMISETAS!</div>
+</div>
+
+<div class="fila-historico">
+  <a class="item" href="sesiones/VII.html">📷 Cinemafia VII · 28/05 · AGER'S · ⭐ 3,8/5</a>
+  <div class="comentario-historico">GUILLE BIEN, GRACIAS</div>
+</div>
 
   </div>
 
