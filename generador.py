@@ -95,6 +95,7 @@ def generar_sesiones():
         sesion = fila.get("SESION", "").strip()
         sede = fila.get("SEDE", "").strip()
         fecha = fila.get("FECHA", "").strip()
+        responsable = fila.get("RESPONSABLE", "").strip()
         carpeta = fila.get("CARPETA_FOTOS", "").strip().lower()
         rating = fila.get("RATING", "").strip()
         incidencias = fila.get("INCIDENCIAS", "").strip()
@@ -139,6 +140,7 @@ def generar_sesiones():
         lista_html += f'''
 <div class="fila-historico">
   <a class="item" href="sesiones/{sesion}.html">📷 Cinemafia {sesion} · {fecha} · {sede} · ⭐ {rating}</a>
+  <div class="responsable-historico">{responsable}</div>
   <div class="comentario-historico">{incidencias}</div>
 </div>
 '''

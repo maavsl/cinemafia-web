@@ -23,8 +23,9 @@
       padding: 20px;
     }
 
-    .fila-historico {
-      display: grid;
+.fila-historico {
+  display: grid;
+  grid-template-columns: 420px 120px 300px;
       grid-template-columns: 420px 300px;
       gap: 20px;
       justify-content: center;
@@ -41,6 +42,16 @@
       display: block;
       font-weight: bold;
     }
+
+    .responsable-historico {
+  padding: 14px 18px;
+  background: #111;
+  border: 1px solid rgba(255,212,71,.35);
+  border-radius: 12px;
+  color: #ffd447;
+  font-weight: bold;
+  text-align: center;
+}
 
     .item:hover {
       background: #222;
