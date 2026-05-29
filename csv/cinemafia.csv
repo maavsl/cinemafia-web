@@ -1,5 +1,5 @@
-NEW SESSION,NUMERO,FECHA,HORA,SEDE,MAPS,FOTO,,,,
-TRUE,VIII,???,20:00,ALVARITO'S,https://maps.app.goo.gl/BNbN5qaYGYHPYHKv9,,,,,CREAR CARPETA NUEVA Y METER ASSETS
+NEW SESSION,NUMERO,FECHA,HORA,SEDE,MAPS,FOTO,https://maavsl.github.io/cinemafia-web/,,,
+TRUE,VIII,TBC,20:00,ALVARITO'S,https://maps.app.goo.gl/BNbN5qaYGYHPYHKv9,,,,,CREAR CARPETA NUEVA Y METER ASSETS
 ,,,,,,,,,,ACTUALIZAR LAS 2 TABLAS
 ,,,,,,,,,,EXPORTAR cinemafia.csv
 ,,,,,,,,,,icono actualizar.sh
