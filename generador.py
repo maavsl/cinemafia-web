@@ -97,6 +97,7 @@ def generar_sesiones():
         fecha = fila.get("FECHA", "").strip()
         carpeta = fila.get("CARPETA_FOTOS", "").strip().lower()
         rating = fila.get("RATING", "").strip()
+        incidencias = fila.get("INCIDENCIAS", "").strip()
 
         if not sesion:
             continue
@@ -129,6 +130,7 @@ def generar_sesiones():
         html = html.replace("{{SESION}}", sesion)
         html = html.replace("{{SEDE}}", sede)
         html = html.replace("{{FECHA}}", fecha)
+        html = html.replace("{{INCIDENCIAS}}", incidencias)
         html = html.replace("{{MEDIA}}", media_html)
 
         salida = SALIDA_SESIONES / f"{sesion}.html"
