@@ -20,7 +20,6 @@ def leer_csv_raw():
 
 def leer_home():
     rows = leer_csv_raw()
-
     headers = rows[0]
     data = rows[1:]
 
@@ -62,7 +61,6 @@ def leer_historico():
 
 def generar_home():
     nueva = leer_home()
-
     html = PLANTILLA_HOME.read_text(encoding="utf-8")
 
     reemplazos = {
@@ -88,7 +86,7 @@ def generar_sesiones():
     lista_html = ""
 
     BASE_URL = "/cinemafia-web"  # GitHub Pages
-    # BASE_URL = ""  # <-- usar esto si pruebas en local
+    # BASE_URL = ""  # usar esto solo si pruebas en local
 
     for fila in filas:
         if fila.get("ACTIVA", "").strip().upper() != "TRUE":
@@ -108,14 +106,24 @@ def generar_sesiones():
 
         if ruta_assets.exists():
             for archivo in sorted(os.listdir(ruta_assets)):
+                nombre = archivo.lower().strip()
+
+                if nombre.startswith("."):
+                    continue
 
                 ruta = f"{BASE_URL}/assets/{carpeta}/{archivo}"
 
-                if archivo.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
-                    media_html += f'<img src="{ruta}">\n'
+                if nombre.endswith((".jpg", ".jpeg", ".png", ".webp", ".gif")):
+                    media_html += f'<img src="{ruta}" alt="Cinemafia {sesion}">\n'
 
-                elif archivo.lower().endswith((".mp4", ".mov")):
-                    media_html += f'<video controls src="{ruta}"></video>\n'
+                elif nombre.endswith((".mp4", ".mov", ".m4v", ".webm")):
+                    media_html += f'''
+<video controls playsinline preload="metadata">
+  <source src="{ruta}" type="video/mp4">
+</video>
+'''
+        else:
+            print(f"⚠️ No existe la carpeta: {ruta_assets}")
 
         html = PLANTILLA_SESION.read_text(encoding="utf-8")
         html = html.replace("{{SESION}}", sesion)

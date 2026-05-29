@@ -1,19 +1,20 @@
 import subprocess
 from datetime import datetime
 
-print("🎬 CINEMAFIA GIDDY UP INICIADO...")
+def run(cmd, obligatorio=True):
+    print("▶️", " ".join(cmd))
+    r = subprocess.run(cmd)
+    if obligatorio and r.returncode != 0:
+        raise SystemExit(f"❌ Falló: {' '.join(cmd)}")
 
-# 1. Generar HTML
-subprocess.run(["python3", "generador.py"], check=True)
+print("🎬 GIDDY UP CINEMAFIA...")
 
-# 2. Git add
-subprocess.run(["git", "add", "."], check=True)
+run(["python3", "generador.py"])
+run(["git", "add", "-A"])
+run(["git", "status"])
 
-# 3. Commit
 mensaje = f"GIDDY UP Cinemafia {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-subprocess.run(["git", "commit", "-m", mensaje], check=False)
+run(["git", "commit", "-m", mensaje], obligatorio=False)
+run(["git", "push"])
 
-# 4. Push
-subprocess.run(["git", "push"], check=True)
-
-print("✅ GIDDY UP COMPLETADO: web generada y subida a GitHub")
+print("✅ Publicado en GitHub Pages")
