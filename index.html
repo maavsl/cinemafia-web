@@ -1,95 +1,210 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cinemafia</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CINEMAFIA</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-.info h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(255,120,40,0.8);
-}
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #050505;
-      color: white;
+
+    *{
+      box-sizing:border-box;
     }
 
-    /* HERO SOLO IMAGEN */
-.hero {
-  min-height: 78vh;
-  background-image:
-    linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-    url("assets/fondo.jpg");
-  background-size: cover;
-  background-position: center -2%;
-}
+    body{
+      margin:0;
+      min-height:100vh;
 
-    /* INFO DEBAJO */
-    .info {
-      background: #050505;
-      padding: 30px 20px 40px;
-      text-align: center;
+      display:grid;
+      place-items:center;
+
+      background:#08090b;
+      color:white;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      padding:24px;
     }
 
-    .info h2 {
-      font-size: 2rem;
-      margin-bottom: 5px;
+    .access{
+      width:100%;
+      max-width:420px;
+
+      text-align:center;
     }
 
-    .info p {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      color: #ccc;
+    .eyebrow{
+      color:#ff4d5f;
+
+      font-size:.7rem;
+      font-weight:900;
+
+      letter-spacing:.18em;
+
+      margin-bottom:12px;
     }
 
-    /* BOTONES */
-    .btn {
-      display: block;
-      width: min(92%, 420px);
-      margin: 12px auto;
-      padding: 17px 18px;
-      border-radius: 12px;
-      text-decoration: none;
-      text-align: center;
-      font-weight: 900;
-      color: #111;
-      background: #f4f4f4;
-      box-shadow: 0 8px 18px rgba(0,0,0,.35);
+    h1{
+      margin:0 0 8px;
+
+      font-size:3rem;
+      letter-spacing:.03em;
     }
 
-    .btn.maps {
-      background: #ffd447;
+    .subtitle{
+      color:#888;
+
+      font-size:.8rem;
+      font-weight:bold;
+
+      letter-spacing:.1em;
+
+      margin-bottom:38px;
     }
+
+    .password{
+      width:100%;
+
+      padding:17px;
+
+      border-radius:12px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.18);
+
+      background:#111318;
+
+      color:white;
+
+      font-size:1rem;
+
+      text-align:center;
+
+      outline:none;
+
+      margin-bottom:12px;
+    }
+
+    .password:focus{
+      border-color:#ff4d5f;
+    }
+
+    .enter{
+      width:100%;
+
+      padding:17px;
+
+      border:0;
+
+      border-radius:12px;
+
+      background:#f6c945;
+
+      color:#111;
+
+      font-size:.95rem;
+      font-weight:900;
+
+      cursor:pointer;
+    }
+
+    .warning{
+      margin-top:28px;
+
+      color:#555;
+
+      font-size:.65rem;
+
+      letter-spacing:.08em;
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- IMAGEN -->
-  <section class="hero"></section>
+  <main class="access">
 
-  <!-- INFO -->
- <section class="info">
-  <h1>CINEMAFIA IX</h1>
-  <h2>ALVARITO'S</h2>
-  <p>TBC · 20:00</p>
+    <div class="eyebrow">
+      ACCESO RESTRINGIDO
+    </div>
 
-<a class="btn maps" href="https://maps.app.goo.gl/BNbN5qaYGYHPYHKv9" target="_blank">
-      📍 CÓMO LLEGAR
-    </a>
+    <h1>
+      CINEMAFIA
+    </h1>
 
-    <a class="btn" href="que-es.html">🎬 ¿QUÉ ES?</a>
-    <a class="btn" href="como-funciona.html">⚙️ ¿CÓMO FUNCIONA?</a>
-    <a class="btn" href="sesiones-anteriores.html">📚 EDICIONES ANTERIORES</a>
-  </section>
+    <div class="subtitle">
+      IDENTIFÍQUESE, SOSPECHOSO
+    </div>
+
+
+    <form id="loginForm">
+
+      <input
+        id="password"
+        class="password"
+        type="text"
+        placeholder="CONTRASEÑA"
+        autocomplete="off"
+        required
+      >
+
+      <button
+        class="enter"
+        type="submit"
+      >
+        ENTRAR
+      </button>
+
+    </form>
+
+
+    <div class="warning">
+      EL ACCESO SERÁ REGISTRADO<br>
+      O NO
+    </div>
+
+  </main>
+
+
+  <script>
+
+    const CINEMAFIA_URL =
+      'https://script.google.com/macros/s/AKfycbyroIjcfMdB8WWm70yzLgi353Nz7DsWgezUlxdgmH9M8r9gRkJhOTgg_LiGMJrChIP8-g/exec';
+
+
+    document
+      .getElementById('loginForm')
+      .addEventListener('submit', function(event){
+
+        event.preventDefault();
+
+        const password =
+          document
+            .getElementById('password')
+            .value
+            .trim();
+
+
+        // Cualquier contraseña funciona.
+        // La mafia no es especialmente competente.
+
+        if(password){
+
+          window.location.href =
+            CINEMAFIA_URL;
+
+        }
+
+      });
+
+  </script>
 
 </body>
 </html>
